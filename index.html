@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -178,10 +178,8 @@
 							With expertise in programming languages and technologies such as
 							Python, Golang, and React, I've built scalable systems and led
 							teams through cross-functional project planning and agile sprint
-							execution. As a current leader of one of FuboTV's Observability
-							and Monitoring Teams, I'm dedicated to delivering high-impact
-							solutions that leverage cutting-edge technologies and drive
-							business value.
+							execution. I'm dedicated to delivering high-impact solutions that
+							leverage cutting-edge technologies and drive business value.
 						</p>
 
 						<p>
@@ -617,7 +615,19 @@
 						<i class="fab fa-medium"></i>
 					</a>
 				</div>
-				<p>&copy; Copyright Reina Mitchell 2025-2026</p>
+				<p>
+					&copy;
+					<span id="copyright"></span>
+				</p>
+				<script>
+					(function () {
+						var start = 2025;
+						var now = new Date().getFullYear();
+						var range = now === start ? String(start) : start + '-' + now;
+						document.getElementById('copyright').textContent =
+							'Copyright Reina Mitchell ' + range;
+					})();
+				</script>
 			</div>
 		</div>
 		<!-- End of copyRight -->
