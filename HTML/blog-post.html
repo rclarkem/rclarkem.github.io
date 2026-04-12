@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Reina Mitchell</title>
+    <title>Blog Post - Reina Mitchell</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -48,28 +48,50 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>My Blog</h1>
-                <p>Thoughts, stories, and ideas</p>
+            <!-- Post Header -->
+            <div class="post-header">
+                <h1 id="postTitle" class="post-title">Loading...</h1>
+                <div class="post-meta">
+                    <span id="postDate"></span>
+                </div>
+                <div class="post-actions admin-only">
+                    <button id="editBtn" class="btn-edit">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button id="deleteBtn" class="btn-delete">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+                </div>
             </div>
 
-            <!-- Blog Grid -->
-            <div id="blogGrid" class="blog-grid">
-                <!-- Blog tiles will be inserted here by JavaScript -->
+            <!-- Post Content -->
+            <div id="postContent" class="post-content">
+                <!-- Post content will be loaded here -->
             </div>
 
-            <!-- Empty State -->
-            <div id="emptyState" class="empty-state" style="display: none;">
-                <i class="far fa-file-alt"></i>
-                <h2>No Posts Yet</h2>
-                <p>Start creating your first blog post!</p>
-                <a href="blog-editor.html" class="btn-new admin-only" style="display: inline-block; margin-top: 1rem;">
-                    <i class="fas fa-plus"></i> Create Post
-                </a>
-            </div>
+            <!-- Back Link -->
+            <a href="blog.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Blog
+            </a>
         </div>
     </main>
+
+    <!-- Delete Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Post</h2>
+            </div>
+            <div id="deleteInstructions" class="modal-body">
+                <!-- Instructions will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close-modal" onclick="closeModal('deleteModal')">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -78,10 +100,10 @@
     <script src="../JS/blog.js"></script>
 
     <script>
-        // Load and display blog posts
+        // Load and display the blog post
         $(document).ready(function() {
             initAuth();
-            loadBlogPosts();
+            loadSinglePost();
         });
     </script>
 </body>

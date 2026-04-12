@@ -93,13 +93,16 @@ $(document).ready(function () {
   });
 
   $('#navigationBar li a').click(function (e) {
-    e.preventDefault();
     let target = $(this).attr('href');
-    if (target !== 'https://rclarke-m.medium.com') {
+    // Allow normal navigation for blog link
+    if (target === 'HTML/blog.html') {
+      return true; // Allow default behavior
+    }
+    // Smooth scroll for anchor links
+    if (target.startsWith('#')) {
+      e.preventDefault();
       let targetPos = $(target).offset().top;
       $('html, body').animate({ scrollTop: targetPos - 50 }, 'slow');
-    } else {
-      window.open(target, '_blank');
     }
   });
 
